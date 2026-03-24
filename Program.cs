@@ -121,7 +121,7 @@ static void ManageFilters(FilterConfig filter, List<Friend> friends)
         switch (choice)
         {
             case "1":
-                PrintLine("  Enter the game name to protect (e.g. NekoPhoenyxChan):", ConsoleColor.White);
+                PrintLine("  Enter the game name to protect (e.g. YourFriendName):", ConsoleColor.White);
                 SetColor(ConsoleColor.Cyan);
                 Console.Write("  > ");
                 ResetColor();
@@ -420,7 +420,7 @@ while (true)
                 continue;
             }
 
-            await leagueClient.Request(requestMethod.DELETE, $"/lol-chat/v1/friends/{friend.puuid}");
+            await leagueClient.Request(requestMethod.DELETE, $"/lol-chat/v1/friends/{friend.id}");
             SetColor(ConsoleColor.Red);
             Console.WriteLine($"  ✗  Removed {displayName}");
             ResetColor();

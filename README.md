@@ -1,7 +1,8 @@
 # League of Legends Friends Cleaner
 
 A small League of Legends tool that lets you **bulk-remove friends** while keeping the ones you actually care about.  
-Written and maintained by **Appercy**, based on [PoniLCU](https://github.com/Ponita0/PoniLCU).
+Written and maintained by **Appercy**, based on [PoniLCU](https://github.com/Ponita0/PoniLCU). and the original code from [Sharaf-Mansour/LeagueFriendsCleaner](https://github.com/Sharaf-Mansour/LeagueFriendsCleaner)
+
 
 ---
 

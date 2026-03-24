@@ -15,7 +15,7 @@ A new `.exe` is built and published automatically whenever a new version tag is 
 ## Features
 
 - 🗑️ **Bulk remove** all friends in one go
-- 🔒 **Whitelist by name** – protect specific friends (e.g. `NekoPhoenyxChan`) so they are never removed
+- 🔒 **Whitelist by name** – protect specific friends (e.g. `Friend1`) so they are never removed
 - 🔒 **Whitelist by group** – protect every friend inside a named friend-group (e.g. `BestFriends`)
 - 💾 **Persistent filter list** – your whitelist is saved to `whitelist.json` and loaded automatically on every run
 - 🎨 **Improved terminal UI** – coloured output, a summary screen, and a friendly menu
@@ -40,7 +40,7 @@ A new `.exe` is built and published automatically whenever a new version tag is 
   Will be kept  :   3
   Will be removed: 39
 
-  🔒 Protected names : NekoPhoenyxChan, AnotherFriend
+  🔒 Protected names : Friend1, AnotherFriend
   🔒 Protected groups: BestFriends
 
   ── Options ───────────────────────────────────────
@@ -55,7 +55,7 @@ Choose **[2] Manage filter / whitelist** from the main menu:
 
 | Option | What it does |
 |--------|--------------|
-| **1** | Add a friend's game name (e.g. `NekoPhoenyxChan`) to the whitelist |
+| **1** | Add a friend's game name (e.g. `Friend1`) to the whitelist |
 | **2** | Add an entire group by its group name (e.g. `BestFriends`) |
 | **3** | Remove a name from the whitelist |
 | **4** | Remove a group from the whitelist |
@@ -71,7 +71,7 @@ You will see a confirmation prompt and then a live log:
 ```
   ── Removing Friends ──────────────────────────────
 
-  🔒 Kept    NekoPhoenyxChan#EUW
+  🔒 Kept    Friend1#EUW
   ✗  Removed SomeRandomDude#1234
   ✗  Removed AnotherOne#5678
   ...
@@ -89,7 +89,7 @@ You will see a confirmation prompt and then a live log:
 ## Notes
 
 - A 1-second delay is added after every 3 removals to respect the League client's rate limit and avoid any risk of a penalty.
-- Names are matched **case-insensitively** (e.g. `neKOPhOenyxChan` matches `NekoPhoenyxChan`).
+- Names are matched **case-insensitively** (e.g. `Friend1` matches `Friend1`).
 - Group matching uses both the internal group name and the display group name, also case-insensitively.
 
 ---

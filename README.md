@@ -5,6 +5,13 @@ Written and maintained by **Appercy**, based on [PoniLCU](https://github.com/Pon
 
 ---
 
+## Download
+
+Grab the latest **LOLFriendsCleaner.exe** from the [Releases](../../releases/latest) page — no installation or .NET runtime required.  
+A new `.exe` is built and published automatically whenever a new version tag is pushed.
+
+---
+
 ## Features
 
 - 🗑️ **Bulk remove** all friends in one go
@@ -84,3 +91,19 @@ You will see a confirmation prompt and then a live log:
 - A 1-second delay is added after every 3 removals to respect the League client's rate limit and avoid any risk of a penalty.
 - Names are matched **case-insensitively** (e.g. `neKOPhOenyxChan` matches `NekoPhoenyxChan`).
 - Group matching uses both the internal group name and the display group name, also case-insensitively.
+
+---
+
+## Publishing a new release (for maintainers)
+
+The GitHub Actions workflow in `.github/workflows/release.yml` builds and releases automatically.  
+To publish a new version just push a version tag:
+
+```bash
+git tag v1.2.0
+git push origin v1.2.0
+```
+
+The workflow will:
+1. Build a **self-contained, single-file** `LOLFriendsCleaner.exe` for Windows x64 (no .NET install needed).
+2. Create a GitHub Release named after the tag and attach the `.exe` to it.

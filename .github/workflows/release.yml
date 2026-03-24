@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Build & Publish Release
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Publish self-contained Windows exe
+        run: >
+          dotnet publish LOLFriendsCleaner.csproj
+          --configuration Release
+          --runtime win-x64
+          --self-contained true
+          -p:PublishSingleFile=true
+          -p:EnableCompressionInSingleFile=true
+          -p:IncludeNativeLibrariesForSelfExtract=true
+          --output publish/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "League Friends Cleaner ${{ github.ref_name }}"
+          body: |
+            ## League Friends Cleaner ${{ github.ref_name }}
+
+            ### Download
+            Download **LOLFriendsCleaner.exe** below and run it while League of Legends is open.
+
+            ### What's new
+            See the [README](https://github.com/${{ github.repository }}/blob/main/README.md) for full feature documentation.
+
+            ### Notes
+            - League of Legends must be running when you launch the tool.
+            - Your whitelist (`whitelist.json`) is stored next to the `.exe` and persists between runs.
+          files: publish/LOLFriendsCleaner.exe
+          fail_on_unmatched_files: true
